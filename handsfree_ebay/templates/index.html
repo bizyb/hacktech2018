@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load staticfiles %}
+    <script type="text/javascript" src="{% static 'js/services.js' %}"></script>
+
+    
+    	<div class="hal-image">
+    		<a onclick="voiceAssit()">
+    		<img id="hal-image-ID" src="{% static 'img/hal.png'%}">
+    		 </a>
+    </div>
+   
+
+{% endblock %}

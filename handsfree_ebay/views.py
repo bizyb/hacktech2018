@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponseForbidden, HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import render
+from handsfree_ebay.services import handsfree
 # from uuid import uuid4
 # from django.core.cache import cache 
 
@@ -22,7 +23,9 @@ def audio_post_view(request):
 		new_user_id = int(request.COOKIES.get('user_id', "0")) + 1 
 		response.set_cookie("user_id", str(new_user_id) + 300)
 		
-	audio_bytes, state = call_bing_api(request.body, request.COOKIES.get("user_id"))
+	audio_bytes, state = handsfree.provide_search_terms(request.body, 
+								request.COOKIES.get("user_id"))
+	
 	file_name = "voice-assist-audio.mp3" 
 	with open(file_name, "wb") as f:
 		f.write(audio_bytes)

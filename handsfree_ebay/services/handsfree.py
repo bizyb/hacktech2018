@@ -54,6 +54,7 @@ def provide_user_reply(audio_file, user):
             audio_response = read_basic_result(user_current_item.get(user), user_item_summaries.get(user))
         else:
             audio_response = None
+            clean_up(user)
     elif reply_text.startswith('done'):
         audio_response = None
         clean_up(user)

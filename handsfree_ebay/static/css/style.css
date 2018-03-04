@@ -1,0 +1,8 @@
+a {
+	cursor: pointer;
+}
+.hal-image, .hal-image img{
+	width: 300px;
+	margin: 0 auto;
+}
+.hal-image { margin-top: 220px; }

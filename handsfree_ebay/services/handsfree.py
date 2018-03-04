@@ -37,13 +37,15 @@ def provide_search_terms(audio_file, user):
     user_current_item[user] = 0
 
     audio_response = read_basic_result(0, item_summaries)
-    return audio_response
+    return audio_response, False
 
 
 def provide_user_reply(audio_file, user):
     if user not in user_item_summaries.keys():
-        return None
+        return None, True
     
+    
+    closing = False
     reply_text = bingspeech.get_stt_text(audio_file)
     reply_text = reply_text.lower().strip()
     if reply_text.startswith('more detail'):
@@ -53,12 +55,14 @@ def provide_user_reply(audio_file, user):
             user_current_item[user] += 1
             audio_response = read_basic_result(user_current_item.get(user), user_item_summaries.get(user))
         else:
-            audio_response = None
+            audio_response = bingspeech.get_tts_audio('No more items, goodbye!')
+            closing = True
             clean_up(user)
     elif reply_text.startswith('done'):
-        audio_response = None
+        audio_response = bingspeech.get_tts_audio('Alright, goodbye!')
+        closing = True
         clean_up(user)
     else:
         audio_response = unknown_command()
         
-    return audio_response
+    return audio_response, closing

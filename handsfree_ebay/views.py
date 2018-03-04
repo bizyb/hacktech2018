@@ -14,18 +14,9 @@ def audio_post_view(request):
 	if request.method == "GET":
 		return HttpResponseForbidden()
 
-	# print "beginning of post--------------------"
-	uploadedFile = open("sample.wav", "wb") 
-	# uploadedFile.write(request.body);
-	# uploadedFile.close()
+	# response = call_bing_api(request.body)
+	
 
-	# print request.POST
-	# print request.FILES
-	# # response = requests.get(request.POST.get("audioURL"))
-	# # print "the response: ", request.content
-	# print "request body: ", request.body
-
-	# print "end of post--------------------" 
 	return render(request, 'index.html', {})
 
 

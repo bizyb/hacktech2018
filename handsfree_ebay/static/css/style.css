@@ -5,4 +5,18 @@ a {
 	width: 300px;
 	margin: 0 auto;
 }
-.hal-image { margin-top: 220px; }
+.hal-image { 
+	margin-top: 15%;
+	position: relative;
+	 }
+
+#watson-overlay {
+	position: absolute;
+}
+#watson-overlay img {
+	width: 150px;	
+	margin-top: 73px;
+	margin-left: 75px;
+}
+
+

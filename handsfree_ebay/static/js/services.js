@@ -1,6 +1,6 @@
 
 
-// var voiceAssitAudio = "/media/audio/audio_out.mp3";
+var voiceAssitAudio;
 
 function activateListeningMode() {
 
@@ -16,27 +16,17 @@ function transmitAudio(audioBlobObj) {
 
     var csrftoken = Cookies.get('csrftoken');
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST", "audio-post", false);
+	xmlhttp.open("POST", "audio-post", true);
 	xmlhttp.setRequestHeader("X-CSRFToken", csrftoken);
 	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlhttp.send(audioBlobObj);
 
-	
-	console.log("response: "+xmlhttp.response);
-	voiceAssitAudio = new Audio(xmlhttp.response);
-	document.getElementById("audioElem").play();
-
-	// audio.play();
-
-	// xmlhttp.onreadystatechange = function() {
-	//     if (this.readyState == 4 && this.status == 200) {
-	//     	console.log("response: "+this.responseText);
-	//         // var jsonObj = JSON.parse(this.responseText);
-	//         // if (jsonObj.status == 'SUCCESS') {
-	        	
-	//         // }	
-	//     }
-	// };
+	xmlhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	    	voiceAssitAudio = new Audio(xmlhttp.responseText);
+	    	voiceAssitAudio.play();	
+	    }
+	};
 }
 
 function voiceAssit() {

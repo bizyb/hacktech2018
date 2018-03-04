@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -22,4 +24,6 @@ urlpatterns = [
     url(r'^audio-post$', views.audio_post_view, name='audio_post_view')
   
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

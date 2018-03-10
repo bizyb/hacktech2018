@@ -23,7 +23,7 @@ def get_tts_audio(text):
     voice.set('name', 'Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)')
     voice.text = text
 
-    token = get_token("8933078bcae341e5887899cded2f2f83")
+    token = get_token("MS CS key")
     tts_header = {
         "X-Microsoft-OutputFormat": "audio-16khz-128kbitrate-mono-mp3", 
         "Content-Type": "application/ssml+xml", 
@@ -40,7 +40,7 @@ def get_stt_text(audio_bytes):
     stt_uri = "https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=en-US&format=simple"
 
     stt_header = {
-        "Ocp-Apim-Subscription-Key": "8933078bcae341e5887899cded2f2f83",
+        "Ocp-Apim-Subscription-Key": "MS CS Key",
         "Content-type": "audio/mp3; codec=audio/pcm; samplerate=16000"}
 
     text_response = requests.post(stt_uri, data=audio_bytes, headers=stt_header)

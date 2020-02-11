@@ -1,5 +1,5 @@
 beautifulsoup4==4.5.3
-Django==1.10.5
+Django==1.11.28
 django-debug-toolbar==1.6
 django-postgres-copy==0.1.2
 html5lib==0.9999999

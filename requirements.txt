@@ -15,7 +15,7 @@ jupyter-client==5.0.0
 jupyter-console==5.1.0
 jupyter-core==4.3.0
 lxml==3.7.3
-notebook==4.4.1
+notebook==6.1.5
 numpy==1.12.1
 ordereddict==1.1
 pathlib==1.0.1

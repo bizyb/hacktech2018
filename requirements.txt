@@ -14,7 +14,7 @@ jsonschema==2.6.0
 jupyter-client==5.0.0
 jupyter-console==5.1.0
 jupyter-core==4.3.0
-lxml==3.7.3
+lxml==4.6.2
 notebook==4.4.1
 numpy==1.12.1
 ordereddict==1.1
